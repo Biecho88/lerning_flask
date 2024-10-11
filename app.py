@@ -7,7 +7,26 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
+'''
+safe -  passes html in render template
+capitalize - first letter of the tag is capital
+lower - whole tag is lower
+upper - whole tag is capital
+title - First letter of every word is uppercase
+trim
+striptags - ignores html in render template
+'''
+
 @app.route("/")
+
+
+@app.route('/index')
+
+def index():
+    first_name = "John"
+    stuff = "This is bold text"
+    player = ["Messi", "Ronaldo", "Lewandowski", 5]
+    return render_template("index.html", first_name = first_name, stuff = stuff, player = player)
 
 
 @app.route('/user/<name>')
