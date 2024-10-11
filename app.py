@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 if os.path.exists("env.py"):
     import env
 
@@ -8,8 +8,12 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-    return "Hello World ... again!"
+
+
+@app.route('/user/<name>')
+
+def user(name):
+    return render_template("user.html", user_name = name)
 
 
 if __name__ == "__main__":
